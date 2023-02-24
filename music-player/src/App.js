@@ -1,6 +1,8 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import { Header } from './components/Header';
+import { Main } from './components/Main';
 
 //Resources:
 //  Getting started with using OAuth for Spotify: https://dev.to/dom_the_dev/how-to-use-the-spotify-api-in-your-react-js-app-50pn
@@ -28,9 +30,8 @@ function App() {
 
     setToken(token)
     console.log('Connected.')
-
-
   }, [])
+
 
   const logout = () => {
     setToken("")
@@ -41,20 +42,22 @@ function App() {
   const [artists, setArtists] = useState([])
   const [albums, setAlbums] = useState([])
 
-  const searchArtists = async (e) => {
+  const searchFunction = async (e) => {
     e.preventDefault()
+
     const { data } = await axios.get("https://api.spotify.com/v1/search", {
       headers: {
         Authorization: `Bearer ${token}`
       },
       params: {
         q: searchKey,
-        type: "artist"
+        type: "artist,album"
       }
     })
 
     setArtists(data.artists.items)
-    console.log(data.artists.items)
+    setAlbums(data.albums.items)
+    console.log(data)
   }
 
   const renderArtists = () => {
@@ -62,11 +65,24 @@ function App() {
       <div key={artist.id}>
         <p>{artist.name}</p>
         {
-          artist.images.length ? <img src={artist.images[0].url} alt='artist' /> : <div>Image Unavailable</div>
+          artist.images.length ? <img src={artist.images[0].url} alt='artist' className='artist-photo' /> : <div>Image Unavailable</div>
         }
       </div>
     ))
   }
+
+  const renderAlbums = () => {
+    return albums.map((album) => (
+      <div key={album.id}>
+        <p>{album.name}</p>
+        {
+          album.images.length ? <img src={album.images[0].url} alt='album' className='album-photo' /> : <div>Album Image Unavailable</div>
+        }
+      </div>
+    ))
+  }
+
+
 
 
   return (
@@ -74,17 +90,25 @@ function App() {
 
       <h1>Spotify React App</h1>
 
-      {!token ?
-        <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-          to Spotify</a>
-        : <button onClick={logout}>Logout</button>}
+      <div className='spotify-auth'>
+        {!token ?
+          <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+            to Spotify</a>
+          : <button onClick={logout}>Logout</button>}
+      </div>
 
-      <form onSubmit={searchArtists}>
-        <input type="text" onChange={e => setSearchKey(e.target.value)} />
-        <button type={"submit"}>Search</button>
-      </form>
+      <Header />
+      <Main />
 
-      {renderArtists()}
+      <div className='placeholder-artist-search'>
+        <form onSubmit={searchFunction}>
+          <input type="text" onChange={e => setSearchKey(e.target.value)} />
+          <button type={"submit"}>Search</button>
+        </form>
+
+        {renderArtists()}
+        {renderAlbums()}
+      </div>
 
     </div>
   );
