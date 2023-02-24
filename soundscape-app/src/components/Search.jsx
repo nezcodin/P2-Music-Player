@@ -1,8 +1,81 @@
+import axios from "axios"
+import { useState, useEffect } from "react"
+
 export const Search = () => {
+
+  const [token, setToken] = useState("")
+
+  useEffect(() => {
+    const hash = window.location.hash
+    let token = window.localStorage.getItem("token")
+
+    if (!token && hash) {
+      token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
+
+      window.location.hash = ""
+      window.localStorage.setItem("token", token)
+    }
+
+    setToken(token)
+  }, [])
+
+  const [searchKey, setSearchKey] = useState("")
+  const [artists, setArtists] = useState([])
+  const [albums, setAlbums] = useState([])
+
+  const searchFunction = async (e) => {
+    e.preventDefault()
+
+    const { data } = await axios.get("https://api.spotify.com/v1/search", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      params: {
+        q: searchKey,
+        type: "artist,album"
+      }
+    })
+
+    setArtists(data.artists.items)
+    setAlbums(data.albums.items)
+    console.log(data)
+  }
+
+  const renderArtists = () => {
+    return artists.map(artist => (
+      <div key={artist.id}>
+        <p>{artist.name}</p>
+        {
+          artist.images.length ? <img src={artist.images[0].url} alt='artist' className='artist-photo' /> : <div>Image Unavailable</div>
+        }
+      </div>
+    ))
+  }
+
+  const renderAlbums = () => {
+    return albums.map((album) => (
+      <div key={album.id}>
+        <p>{album.name}</p>
+        {
+          album.images.length ? <img src={album.images[0].url} alt='album' className='album-photo' /> : <div>Album Image Unavailable</div>
+        }
+      </div>
+    ))
+  }
+
   return (
     <div>
-      <input className='search-bar' type='text'></input>
-      <button className='search-button' type='submit'>Search</button>
+
+      <div className='search'>
+        <form onSubmit={searchFunction}>
+          <input type="text" onChange={e => setSearchKey(e.target.value)} className='search-bar' />
+          <button type={"submit"} className='search-button'>Search</button>
+        </form>
+
+        {renderArtists()}
+        {renderAlbums()}
+      </div>
+
     </div>
   )
 }

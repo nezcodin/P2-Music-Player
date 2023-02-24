@@ -1,6 +1,5 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
 import { Header } from './components/Header';
 import { Main } from './components/Main';
 
@@ -38,57 +37,11 @@ function App() {
     window.localStorage.removeItem("token")
   }
 
-  const [searchKey, setSearchKey] = useState("")
-  const [artists, setArtists] = useState([])
-  const [albums, setAlbums] = useState([])
-
-  const searchFunction = async (e) => {
-    e.preventDefault()
-
-    const { data } = await axios.get("https://api.spotify.com/v1/search", {
-      headers: {
-        Authorization: `Bearer ${token}`
-      },
-      params: {
-        q: searchKey,
-        type: "artist,album"
-      }
-    })
-
-    setArtists(data.artists.items)
-    setAlbums(data.albums.items)
-    console.log(data)
-  }
-
-  const renderArtists = () => {
-    return artists.map(artist => (
-      <div key={artist.id}>
-        <p>{artist.name}</p>
-        {
-          artist.images.length ? <img src={artist.images[0].url} alt='artist' className='artist-photo' /> : <div>Image Unavailable</div>
-        }
-      </div>
-    ))
-  }
-
-  const renderAlbums = () => {
-    return albums.map((album) => (
-      <div key={album.id}>
-        <p>{album.name}</p>
-        {
-          album.images.length ? <img src={album.images[0].url} alt='album' className='album-photo' /> : <div>Album Image Unavailable</div>
-        }
-      </div>
-    ))
-  }
-
-
-
 
   return (
     <div className="App">
 
-      <h1>Spotify React App</h1>
+      <h1>SoundScape</h1>
 
       <div className='spotify-auth'>
         {!token ?
@@ -99,16 +52,6 @@ function App() {
 
       <Header />
       <Main />
-
-      <div className='placeholder-artist-search'>
-        <form onSubmit={searchFunction}>
-          <input type="text" onChange={e => setSearchKey(e.target.value)} />
-          <button type={"submit"}>Search</button>
-        </form>
-
-        {renderArtists()}
-        {renderAlbums()}
-      </div>
 
     </div>
   );
