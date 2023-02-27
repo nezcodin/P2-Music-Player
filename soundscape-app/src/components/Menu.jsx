@@ -13,6 +13,9 @@ export const Menu = () => {
         <Link to='/playlists'>Playlists</Link>
         <Link to='/music-player'>Play Music</Link>
       </div>
+      <div className="button-submit-container">
+        <button className='button-submit' type='submit'></button>
+      </div>
     </div>
   )
 }

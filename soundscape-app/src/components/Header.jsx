@@ -1,7 +1,7 @@
 export const Header = () => {
   return (
     <div>
-      <h2>Header Component</h2>
+      <h2>SoundScape</h2>
     </div>
   )
 }

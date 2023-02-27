@@ -45,11 +45,11 @@ export const Search = () => {
 
   const renderArtists = () => {
     return artists.map(artist => (
-      <div key={artist.id}>
-        <p>{artist.name}</p>
+      <div className="artist-result" key={artist.id}>
         {
           artist.images.length ? <img src={artist.images[0].url} alt='artist' className='artist-photo' /> : <div>Image Unavailable</div>
         }
+        <p className="artist-name">{artist.name}</p>
       </div>
     ))
   }

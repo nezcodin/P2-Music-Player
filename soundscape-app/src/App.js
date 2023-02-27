@@ -4,10 +4,6 @@ import { Header } from './components/Header';
 import { Main } from './components/Main';
 import SpotifyPlayer from 'react-spotify-web-playback'
 
-//Resources:
-//  Getting started with using OAuth for Spotify: https://dev.to/dom_the_dev/how-to-use-the-spotify-api-in-your-react-js-app-50pn
-
-
 function App() {
 
   const CLIENT_ID = '4b53edf8d3184c88ad99c1105531b262'
@@ -52,9 +48,6 @@ function App() {
 
   return (
     <div className="App">
-
-      <h1>SoundScape</h1>
-
       <div className='spotify-auth'>
         {!token ?
           <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login

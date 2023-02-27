@@ -14,3 +14,9 @@ Users will be able to:
 ## Deployed Site
 
 [To Be Deployed...]()
+
+## Resources Used
+
+- [Getting started with the Spotify API](https://dev.to/dom_the_dev/how-to-use-the-spotify-api-in-your-react-js-app-50pn)
+- [Hover & Transform CSS](https://techstacker.com/how-to-make-elements-zoom-on-hover-with-css/)
+- [Revert to previous state after un-hover CSS](https://stackoverflow.com/questions/46085733/css-smooth-transition-between-hover-and-leaving)
