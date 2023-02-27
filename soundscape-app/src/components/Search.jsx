@@ -22,6 +22,7 @@ export const Search = () => {
   const [searchKey, setSearchKey] = useState("")
   const [artists, setArtists] = useState([])
   const [albums, setAlbums] = useState([])
+  const [tracks, setTracks] = useState([])
 
   const searchFunction = async (e) => {
     e.preventDefault()
@@ -32,12 +33,13 @@ export const Search = () => {
       },
       params: {
         q: searchKey,
-        type: "artist,album"
+        type: "artist,album,track"
       }
     })
 
     setArtists(data.artists.items)
     setAlbums(data.albums.items)
+    setTracks(data.tracks.items)
     console.log(data)
   }
 
@@ -63,6 +65,15 @@ export const Search = () => {
     ))
   }
 
+  const renderTracks = () => {
+    return tracks.map((track) => (
+      <div key={track.id}>
+        <p>{track.name}</p>
+        <p>{track.artists[0].name}</p>
+      </div>
+    ))
+  }
+
   return (
     <div>
 
@@ -74,6 +85,7 @@ export const Search = () => {
 
         {renderArtists()}
         {renderAlbums()}
+        {renderTracks()}
       </div>
 
     </div>

@@ -9,7 +9,7 @@ Users will be able to:
 
 ## Wireframe via Figma
 
-To Be Created...
+[Figma Wireframe](https://www.figma.com/file/cQXS2JDH8OJnPno5hACUAS/SoundScape-Wireframe?node-id=0%3A1&t=Ph5Z4iq1BkqqUS9s-0)
 
 ## Deployed Site
 

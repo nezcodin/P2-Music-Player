@@ -1,7 +1,5 @@
 .App {
   text-align: center;
-  display: flex;
-  flex-direction: column;
 }
 
 .search-bar {
@@ -23,4 +21,20 @@
 
 .artist-photo {
   border-radius: 500px;
+}
+
+.menu {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.menu-buttons {
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+  background-color: greenyellow;
+  display: flex;
+  margin-bottom: 20px;
 }
