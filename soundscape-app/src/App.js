@@ -50,9 +50,11 @@ function App() {
     <div className="App">
       <div className='spotify-auth'>
         {!token ?
-          <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-            to Spotify</a>
-          : <button onClick={logout}>Logout</button>}
+          <div className='log-button'>
+            <a className='login-button' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+              to Spotify</a>
+          </div>
+          : <div className='log-button'> <button className='logout-button' onClick={logout}>Logout</button> </div>}
       </div>
       <Header />
       <Main />

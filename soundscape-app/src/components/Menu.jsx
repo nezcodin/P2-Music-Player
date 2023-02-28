@@ -8,10 +8,10 @@ export const Menu = () => {
   return (
     <div className="menu">
       <div className="menu-buttons">
-        <Link to='/'>Home</Link>
-        <Link to='/search'>Search</Link>
-        <Link to='/playlists'>Playlists</Link>
-        <Link to='/music-player'>Play Music</Link>
+        <Link className="top" to='/'>Home</Link>
+        <Link className="side" to='/search'>Search</Link>
+        <Link className="side" to='/playlists'>Playlists</Link>
+        <Link className="top" to='/music-player'>Play Music</Link>
       </div>
       <div className="button-submit-container">
         <button className='button-submit' type='submit'></button>

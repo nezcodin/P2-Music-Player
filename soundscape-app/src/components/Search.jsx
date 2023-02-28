@@ -45,21 +45,28 @@ export const Search = () => {
 
   const renderArtists = () => {
     return artists.map(artist => (
-      <div className="artist-result" key={artist.id}>
+      <div className="result" key={artist.id}>
         {
-          artist.images.length ? <img src={artist.images[0].url} alt='artist' className='artist-photo' /> : <div>Image Unavailable</div>
+          artist.images.length ?
+            <div>
+              <img src={artist.images[0].url} alt='artist' className='result-photo' />
+              <p className="result-name">{artist.name}</p>
+            </div>
+            :
+            <div>Image Unavailable</div>
+
         }
-        <p className="artist-name">{artist.name}</p>
+
       </div>
     ))
   }
 
   const renderAlbums = () => {
     return albums.map((album) => (
-      <div key={album.id}>
-        <p>{album.name}</p>
+      <div className="result" key={album.id}>
+        <p className="result-name">{album.name}</p>
         {
-          album.images.length ? <img src={album.images[0].url} alt='album' className='album-photo' /> : <div>Album Image Unavailable</div>
+          album.images.length ? <img src={album.images[0].url} alt='album' className='result-photo' /> : <div>Album Image Unavailable</div>
         }
       </div>
     ))
@@ -67,8 +74,8 @@ export const Search = () => {
 
   const renderTracks = () => {
     return tracks.map((track) => (
-      <div key={track.id}>
-        <p>{track.name}</p>
+      <div className="result" key={track.id}>
+        <p className="result-name">{track.name}</p>
         <p>{track.artists[0].name}</p>
       </div>
     ))
@@ -83,9 +90,12 @@ export const Search = () => {
           <button type={"submit"} className='search-button'>Search</button>
         </form>
 
-        {renderArtists()}
-        {renderAlbums()}
-        {renderTracks()}
+        <div className="results-container">
+          {renderArtists()}
+          {renderAlbums()}
+          {renderTracks()}
+        </div>
+
       </div>
 
     </div>
