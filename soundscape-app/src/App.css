@@ -8,6 +8,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-left: 30px;
 }
 
 .log-button {
@@ -22,11 +23,22 @@
   border: none;
   height: 30px;
   width: 60px;
+  border-style: solid;
+  background-color: #5c86c0;
+  border-color: #3b639a;
+  cursor: pointer;
 }
 
 .login-button {
   margin-top: -50px;
   margin-right: 30px;
+  border: none;
+  height: 30px;
+  width: 110px;
+  border-style: solid;
+  background-color: #5c86c0;
+  border-color: #3b639a;
+  cursor: pointer;
 }
 
 /* SEARCH */
@@ -61,7 +73,7 @@
 
 .result {
   display: flex;
-  background-color: #0851cd;
+  background-color: #1e69b7;
   height: 300px;
   max-width: 300px;
   border-radius: 50px;
@@ -91,14 +103,25 @@
 /* MENU + MENU COMPONENTS */
 
 .menu {
+  /* i am using position: fixed so that this constantly stays at the bottom of the screen instead of moving with the screen when scrolling */
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   height: 200px;
   width: 200px;
-  background-color: gray;
+  background-color: #3b639a;
   border-radius: 100px;
+  margin-bottom: 10px;
+  z-index: 1;
+}
+
+.button-submit-container {
+  height: 200px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 100px;
 }
 
 .button-submit {
@@ -106,17 +129,34 @@
   width: 75px;
   border-radius: 100px;
   border: none;
-  background-color: black;
+  background-color: #7699ca;
 }
 
-.menu-buttons {
-  display: flex;
-  justify-content: space-between;
+/* .menu-buttons {} */
+
+.home-icon {
+  background-image: 'https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/black_repicthousebase_1484336385-1.png';
+  height: 200px;
 }
 
 .home {
   height: 100vh;
   background-color: #8ebdfa;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
+}
+
+.home-text {
+  height: 315px;
+  width: 600px;
+  background-color: #9ac3ee;
+  border-radius: 50px;
+  border-style: solid;
+  border-width: 10px;
+  border-color: #7699ca;
+  padding: 10px;
 }
 
 .playlists {
@@ -128,3 +168,5 @@
   height: 100vh;
   background-color: #8ebdfa;
 }
+
+/* MUSIC PLAYER */

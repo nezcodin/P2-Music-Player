@@ -15,7 +15,9 @@ function App() {
     'user-library-read',
     'user-library-modify',
     'user-read-playback-state',
-    'user-modify-playback-state'
+    'user-modify-playback-state',
+    'playlist-modify-public',
+    'playlist-modify-private'
   ];
   const RESPONSE_TYPE = "token"
 
@@ -38,21 +40,24 @@ function App() {
   }, [])
 
 
+
   const logout = () => {
     //removes access token to log out
     setToken("")
     window.localStorage.removeItem("token")
   }
 
-
   return (
     <div className="App">
+      <Header />
+
       <div className='spotify-auth'>
-        <Header />
+
         {!token ?
           <div className='log-button'>
-            <a className='login-button' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${encodeURIComponent(SCOPES)}&response_type=${RESPONSE_TYPE}`}>Login
-              to Spotify</a>
+            <button className='login-button' onClick={() => {
+              window.location.href = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${encodeURIComponent(SCOPES)}&response_type=${RESPONSE_TYPE}`;
+            }}>Login to Spotify</button>
           </div>
           : <div className='log-button'> <button className='logout-button' onClick={logout}>Logout</button> </div>}
       </div>

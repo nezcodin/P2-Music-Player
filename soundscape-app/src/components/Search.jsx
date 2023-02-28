@@ -83,7 +83,6 @@ export const Search = () => {
 
   return (
     <div>
-
       <div className='search'>
         <form onSubmit={searchFunction}>
           <input placeholder='Begin searching' type="text" onChange={e => setSearchKey(e.target.value)} className='search-bar' />
@@ -97,7 +96,6 @@ export const Search = () => {
         </div>
 
       </div>
-
     </div>
   )
 }
