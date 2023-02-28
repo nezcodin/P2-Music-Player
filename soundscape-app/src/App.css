@@ -88,12 +88,6 @@
   margin-bottom: 30px;
 }
 
-/* .result-name {
-  display: flex;
-  align-items: center;
-  margin: 15px;
-} */
-
 /* MENU + MENU COMPONENTS */
 
 .menu {
@@ -104,6 +98,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 100px;
 }
 
 .button-submit {
@@ -121,15 +116,15 @@
 
 .home {
   height: 100vh;
-  background-color: aquamarine;
+  background-color: #8ebdfa;
 }
 
 .playlists {
   height: 100vh;
-  background-color: blueviolet;
+  background-color: #8ebdfa;
 }
 
 .music-player {
   height: 100vh;
-  background-color: chocolate;
+  background-color: #8ebdfa;
 }

@@ -86,7 +86,7 @@ export const Search = () => {
 
       <div className='search'>
         <form onSubmit={searchFunction}>
-          <input type="text" onChange={e => setSearchKey(e.target.value)} className='search-bar' />
+          <input placeholder='Begin searching' type="text" onChange={e => setSearchKey(e.target.value)} className='search-bar' />
           <button type={"submit"} className='search-button'>Search</button>
         </form>
 
