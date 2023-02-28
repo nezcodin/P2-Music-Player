@@ -2,7 +2,6 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Main } from './components/Main';
-import SpotifyPlayer from 'react-spotify-web-playback'
 
 function App() {
 
@@ -49,14 +48,15 @@ function App() {
   return (
     <div className="App">
       <div className='spotify-auth'>
+        <Header />
         {!token ?
           <div className='log-button'>
-            <a className='login-button' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+            <a className='login-button' href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=${encodeURIComponent(SCOPES)}&response_type=${RESPONSE_TYPE}`}>Login
               to Spotify</a>
           </div>
           : <div className='log-button'> <button className='logout-button' onClick={logout}>Logout</button> </div>}
       </div>
-      <Header />
+
       <Main />
 
     </div>
