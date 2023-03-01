@@ -89,6 +89,8 @@ export const Search = () => {
           <button type={"submit"} className='search-button'>Search</button>
         </form>
 
+        <div className="blur"></div>
+
         <div className="results-container">
           {renderArtists()}
           {renderAlbums()}

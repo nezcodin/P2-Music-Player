@@ -7,6 +7,7 @@ import { MusicPlayer } from "./MusicPlayer"
 export const Menu = () => {
   return (
     <div className="menu">
+
       <div className="menu-buttons">
         <Link className="home-icon" to='/'>Home</Link>
         <Link className="inside-home-icon" to='/search'>Search</Link>
@@ -16,7 +17,6 @@ export const Menu = () => {
       <div className="button-submit-container">
         <button className='button-submit' type='submit'></button>
       </div>
-
     </div>
   )
 }
