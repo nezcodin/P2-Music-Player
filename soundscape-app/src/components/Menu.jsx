@@ -1,8 +1,4 @@
 import { Link } from "react-router-dom"
-import { Home } from "./Home"
-import { Search } from "./Search"
-import { Playlists } from "./Playlists"
-import { MusicPlayer } from "./MusicPlayer"
 
 export const Menu = () => {
   return (

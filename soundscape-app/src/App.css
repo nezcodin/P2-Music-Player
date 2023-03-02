@@ -11,15 +11,13 @@
   margin-left: 30px;
 }
 
-.log-button {
-  display: flex;
+/* .log-button {
+  /* display: flex;
   justify-content: flex-end;
-  align-items: flex-start;
-}
+  align-items: flex-start; */
+
 
 .logout-button {
-  margin-top: -50px;
-  margin-right: 30px;
   border: none;
   height: 30px;
   width: 60px;
@@ -30,8 +28,7 @@
 }
 
 .login-button {
-  margin-top: -50px;
-  margin-right: 30px;
+  margin-top: 30px;
   border: none;
   height: 30px;
   width: 110px;
@@ -69,6 +66,7 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 10px;
+  z-index: 2;
 }
 
 .result {
@@ -100,11 +98,17 @@
   margin-bottom: 30px;
 }
 
-.blur {
-  height: 100px;
-  width: 100px;
-  filter: blur(4px);
-}
+/* .blur {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2));
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(6px);
+  filter: blur(20px);
+  z-index: 1;
+} */
 
 /* MENU + MENU COMPONENTS */
 
@@ -119,7 +123,7 @@
   background-color: #3b639a;
   border-radius: 100px;
   margin-bottom: 10px;
-  z-index: 1;
+  z-index: 3;
 }
 
 .button-submit-container {
@@ -163,6 +167,7 @@
   border-width: 10px;
   border-color: #7699ca;
   padding: 10px;
+  /* margin-top: 70px; */
 }
 
 .playlists {
@@ -174,3 +179,20 @@
 }
 
 /* MUSIC PLAYER */
+
+.full-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.player-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5C86C0;
+  box-shadow: 2px 2px 5px black;
+  width: 60%;
+  height: 300px;
+  border-radius: 50px;
+}

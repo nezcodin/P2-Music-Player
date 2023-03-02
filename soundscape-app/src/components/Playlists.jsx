@@ -87,6 +87,7 @@ export const Playlists = () => {
   return (
     <div className="playlists">
       <p>Playlists</p>
+      <p>Playlists do not yet have full functionality within this app. The buttons below are for testing purposes.</p>
       {playlistId ?
         <button onClick={handleAddTracks}>Add tracks to playlist</button>
         :

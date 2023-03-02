@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
+import axios from 'axios';
 
 export const MusicPlayer = () => {
   const [token, setToken] = useState("");
@@ -16,89 +17,55 @@ export const MusicPlayer = () => {
     }
 
     setToken(token);
+    console.log(`token: ${token}`)
   }, []);
 
+  const [play, setPlay] = useState(false)
+  const [songQueue, setSongQueue] = useState([])
+
+  const addToQueue = (uri) => {
+    setSongQueue((previousQueue) => [...previousQueue, uri])
+  }
+
   useEffect(() => {
-    let player;
+    console.log('Queue Updated: ', songQueue)
+    nextSong = []
+    setPlay(false)
+    nextSong = songQueue
+    setPlay(true)
+  }, [songQueue])
 
-    const handlePlayer = async () => {
-      player = new window.Spotify.Player({
-        name: 'Web Playback SDK Quick Start Player',
-        getOAuthToken: cb => {
-          cb(token);
-        },
-        volume: 0.5,
-        webPlaybackSDKOptions: {
-          name: 'web-playback-sdk',
-          getOAuthToken: cb => { cb(token); },
-          // Specify the robustness level here
-          getDeviceId: async () => {
-            const { devices } = await window.Spotify.getMyDevices();
-            return devices.find(device => device.type === 'Computer').id;
-          },
-          getError: err => console.error(err),
-          volume: 0.5,
-          // Set the robustness level here
-          playerInit: {
-            name: "Spotify Web Playback SDK",
-            getOAuthToken: cb => { cb(token); },
-            volume: 0.5,
-            // Set the robustness level here
-            attributes: {
-              'restrictions': {
-                'disallow_pausing': false,
-                'disallow_skipping_prev': false,
-                'disallow_skipping_next': false,
-                'disallow_seek': false
-              }
-            }
-          }
-        }
-      });
+  let nextSong = songQueue
 
-      // Ready
-      player.addListener('ready', ({ device_id }) => {
-        console.log('Ready with Device ID', device_id);
-      });
-
-      // Not Ready
-      player.addListener('not_ready', ({ device_id }) => {
-        console.log('Device ID has gone offline', device_id);
-      });
-
-      player.addListener('initialization_error', ({ message }) => {
-        console.error(message);
-      });
-
-      player.addListener('authentication_error', ({ message }) => {
-        console.error(message);
-      });
-
-      player.addListener('account_error', ({ message }) => {
-        console.error(message);
-      });
-
-      player.connect();
-    };
-
-    if (window.Spotify) {
-      handlePlayer();
-    } else {
-      window.onSpotifyWebPlaybackSDKReady = handlePlayer;
-    }
-
-    return () => {
-      if (player) {
-        player.disconnect();
-      }
-    }
-  }, [token]);
-
+  //Spotify SDK webplayback functionality
   return (
-    <div className="music-player">
-      <p>Music Player</p>
-      <button id="togglePlay" onClick={() => window.player?.togglePlay()}>Toggle Play</button>
-      <SpotifyPlayer token={token} />
+    <div className='full-container'>
+      <div className='player-container'>
+        <SpotifyPlayer
+          token={token}
+          autoPlay={false}
+          showSaveIcon
+          initialVolume={0.5}
+          magnifySliderOnHover={true}
+          uris={nextSong}
+          callback={state => {
+            if (!state.isPlaying) setPlay(false)
+          }}
+          play={play}
+          className='spotify-player'
+          styles={{
+            activeColor: 'white',
+            bgColor: '#5C86C0',
+            color: 'white',
+            loaderColor: '#3b639a',
+            sliderColor: '#5d9fe3',
+            sliderHandleColor: '#0f345b',
+            trackArtistColor: '#5c86c0',
+            trackNameColor: 'white',
+          }}
+        />
+        <button onClick={() => addToQueue('spotify:track:3YjH3TIf5SOpFlnqlRdNAE')}> Add Song </button>
+      </div>
     </div>
-  );
-};
+  )
+}

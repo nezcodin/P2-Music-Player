@@ -23,6 +23,7 @@ export const Search = () => {
   const [artists, setArtists] = useState([])
   const [albums, setAlbums] = useState([])
   const [tracks, setTracks] = useState([])
+  const [spotifyPlay, setSpotifyPlay] = useState([])
 
   const searchFunction = async (e) => {
     e.preventDefault()
@@ -81,10 +82,14 @@ export const Search = () => {
     ))
   }
 
+  const renderPlayInSpotify = () => {
+
+  }
+
   return (
     <div>
       <div className='search'>
-        <form onSubmit={searchFunction}>
+        <form className="search-container" onSubmit={searchFunction}>
           <input placeholder='Begin searching' type="text" onChange={e => setSearchKey(e.target.value)} className='search-bar' />
           <button type={"submit"} className='search-button'>Search</button>
         </form>
