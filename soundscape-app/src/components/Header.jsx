@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 export const Header = () => {
 
   const CLIENT_ID = '4b53edf8d3184c88ad99c1105531b262'
-  const REDIRECT_URI = "http://localhost:3000"
+  const REDIRECT_URI = "https://sound-scape-app.netlify.app/"
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
   const SCOPES = [
     'streaming',
