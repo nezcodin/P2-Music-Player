@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
-import axios from 'axios';
 
 export const MusicPlayer = () => {
   const [token, setToken] = useState("");

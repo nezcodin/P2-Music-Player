@@ -23,7 +23,6 @@ export const Search = () => {
   const [artists, setArtists] = useState([])
   const [albums, setAlbums] = useState([])
   const [tracks, setTracks] = useState([])
-  const [spotifyPlay, setSpotifyPlay] = useState([])
 
   const searchFunction = async (e) => {
     e.preventDefault()
@@ -80,10 +79,6 @@ export const Search = () => {
         <p>{track.artists[0].name}</p>
       </div>
     ))
-  }
-
-  const renderPlayInSpotify = () => {
-
   }
 
   return (
