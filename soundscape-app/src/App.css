@@ -25,6 +25,8 @@
   background-color: #5c86c0;
   border-color: #3b639a;
   cursor: pointer;
+  margin-left: 1250px;
+  margin-top: 30px;
 }
 
 .login-button {
@@ -36,6 +38,8 @@
   background-color: #5c86c0;
   border-color: #3b639a;
   cursor: pointer;
+  margin-top: 30px;
+  margin-left: 1200px;
 }
 
 /* SEARCH */
