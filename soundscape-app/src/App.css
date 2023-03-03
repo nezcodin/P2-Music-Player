@@ -24,6 +24,7 @@
 }
 
 .login-button {
+  margin-top: 30px;
   border: none;
   height: 30px;
   width: 110px;
@@ -129,6 +130,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .button-submit {
@@ -137,14 +139,44 @@
   border-radius: 100px;
   border: none;
   background-color: #7699ca;
+  z-index: 1;
 }
 
-/* 
-.menu-buttons {} */
+.menu-buttons {
+  display: flex;
+}
 
 .home-icon {
-  background-image: 'https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/black_repicthousebase_1484336385-1.png';
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+.tooltip {
+  display: flex;
+  justify-content: space-around;
+}
+
+.backward-icon {
+  display: flex;
+  margin: 10px;
+  height: 30px;
+  width: 30px;
+}
+
+.forward-icon {
+  display: flex;
+  margin: 10px;
+  height: 30px;
+  width: 30px;
+}
+
+.volume-icon {
+  display: flex;
+  font-size: 20px;
+  margin: 10px;
 }
 
 .home {
