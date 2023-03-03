@@ -10,6 +10,10 @@ export const Menu = () => {
         <Link className="inside-home-icon" to='/search'>Search</Link>
         <Link className="inside-home-icon" to='/playlists'>Playlists</Link>
         <Link className="inside-home-icon" to='/music-player'>Play Music</Link>
+        <Icon icon="ic:sharp-home" />
+        <Icon icon="ant-design:fast-forward-outlined" />
+        <Icon icon="ant-design:fast-backward-outlined" />
+        <p>VOL</p>
       </div>
       <div className="button-submit-container">
         <button className='button-submit' type='submit'></button>
