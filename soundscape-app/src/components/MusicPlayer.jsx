@@ -64,7 +64,7 @@ export const MusicPlayer = () => {
             trackNameColor: 'white',
           }}
         />
-        <button onClick={() => addToQueue('spotify:track:3YjH3TIf5SOpFlnqlRdNAE')}> Add Song </button>
+        <button className='add-song' onClick={() => addToQueue('spotify:track:3YjH3TIf5SOpFlnqlRdNAE')}> Add Song </button>
       </div>
     </div>
   )
