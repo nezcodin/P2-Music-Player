@@ -152,13 +152,89 @@
   margin-top: 5px;
   height: 40px;
   width: 40px;
+  color: black;
+}
+
+.tooltip-container {
+  display: flex;
+  justify-content: center;
 }
 
 .tooltip {
   position: absolute;
-  bottom: 30px;
+  bottom: 40px;
+  margin-left: 50px;
   display: flex;
-  justify-content: space-between;
+}
+
+.home-link {
+  background-color: #5C86C0;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  border: solid;
+  border-color: #3b639a;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.home-link:hover {
+  transform: scale(1.125);
+  transition: transform 0.4s ease-in-out;
+}
+
+.search-link {
+  background-color: #5C86C0;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  border: solid;
+  border-color: #3b639a;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.search-link:hover {
+  transform: scale(1.125);
+  transition: transform 0.4s ease-in-out;
+}
+
+.playlists-link {
+  background-color: #5C86C0;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  border: solid;
+  border-color: #3b639a;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.playlists-link:hover {
+  transform: scale(1.125);
+  transition: transform 0.4s ease-in-out;
+}
+
+.player-link {
+  background-color: #5C86C0;
+  margin: 10px;
+  border-radius: 20px;
+  padding: 10px;
+  border: solid;
+  border-color: #3b639a;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.player-link:hover {
+  transform: scale(1.125);
+  transition: transform 0.4s ease-in-out;
 }
 
 .backward-icon {

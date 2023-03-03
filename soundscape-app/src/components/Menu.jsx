@@ -25,11 +25,14 @@ export const Menu = () => {
         >
           <Icon icon="ic:sharp-home" className="home-icon" />
           {showTooltip && (
-            <span className="tooltip">
-              <Link to='/search'>Search</Link>
-              <Link to='/playlists'>Playlists</Link>
-              <Link to='/music-player'>Play Music</Link>
-            </span>
+            <div className="tooltip-container">
+              <span className="tooltip">
+                <Link to='/' className="home-link">Home</Link>
+                <Link to='/search' className="search-link">Search</Link>
+                <Link to='/playlists' className="playlists-link">Playlists</Link>
+                <Link to='/music-player' className="player-link">Play Music</Link>
+              </span>
+            </div>
           )}
         </Link>
         <Icon icon="ant-design:fast-forward-outlined" className="forward-icon" />
