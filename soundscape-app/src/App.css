@@ -147,34 +147,40 @@
 }
 
 .home-icon {
-  display: flex;
-  justify-content: center;
-  margin: 10px;
-  height: 50px;
-  width: 50px;
+  position: absolute;
+  left: 40px;
+  margin-top: 5px;
+  height: 40px;
+  width: 40px;
 }
 
 .tooltip {
+  position: absolute;
+  bottom: 30px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .backward-icon {
-  display: flex;
-  margin: 10px;
+  position: absolute;
+  top: 80px;
+  left: 10px;
   height: 30px;
   width: 30px;
 }
 
 .forward-icon {
-  display: flex;
-  margin: 10px;
+  position: absolute;
+  top: 80px;
+  left: 160px;
   height: 30px;
   width: 30px;
 }
 
 .volume-icon {
-  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 70px;
   font-size: 20px;
   margin: 10px;
 }
